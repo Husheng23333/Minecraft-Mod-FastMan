@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "FastMod:fast_hopper"
+          "name": "fastman:fast_hopper"
         }
       ]
     }
