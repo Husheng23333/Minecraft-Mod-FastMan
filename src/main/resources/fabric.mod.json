@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "fastman",
+  "version": "${version}",
+  "name": "FastMan - 快男！",
+  "description": "(｡･∀･)ﾉﾞ",
+  "authors": [
+    "husheng"
+  ],
+  "contact": {},
+  "license": "BSD-3-Clause",
+  "icon": "assets/fastman/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.husheng.fastman.FastManMod"
+    ]
+  },
+  "mixins": [
+    "fastman.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.1",
+    "minecraft": "~1.20.4",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

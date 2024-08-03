@@ -1,0 +1,11 @@
+{
+  "itemgroup.mod": "快男 快就对了！",
+
+  "item.fastman.fast_switcher": "快男转换器",
+
+  "info.switch.fast_hopper": "已将目标切换为 - 快男漏斗！",
+  "info.switch.original_hopper": "已将目标切换为 - 原版漏斗！",
+  "container.fast_hopper": "快男漏斗",
+  "item.fastman.fast_hopper": "快男漏斗",
+  "block.fastman.fast_hopper": "快男漏斗"
+}

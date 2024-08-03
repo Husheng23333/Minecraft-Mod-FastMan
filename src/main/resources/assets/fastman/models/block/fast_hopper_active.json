@@ -1,0 +1,11 @@
+{
+    "parent": "fastman:block/template_hopper",
+    "textures": {
+        "particle": "fastman:block/fast_hopper_outside_active",
+        "top": "fastman:block/fast_hopper_top_active",
+        "side": "fastman:block/fast_hopper_outside_active",
+        "inside": "fastman:block/fast_hopper_inside_active",
+        "inside1": "fastman:block/fast_hopper_inside_1_active",
+        "down": "fastman:block/fast_hopper_down"
+    }
+}

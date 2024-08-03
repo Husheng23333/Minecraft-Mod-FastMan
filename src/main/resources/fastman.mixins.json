@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.husheng.fastman.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "FastHopperBlockEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
