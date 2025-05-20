@@ -9,13 +9,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-/**
- * Description: 物品注册类
- *
- * @author HuSheng
- * @date 2024/7/20 下午7:33
- * @fileName ModItems.java
- **/
 public class ModItems {
     
     public static Item registerItem(String name, Item item) {

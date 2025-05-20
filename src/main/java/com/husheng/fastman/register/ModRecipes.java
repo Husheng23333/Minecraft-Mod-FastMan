@@ -1,8 +1,7 @@
 package com.husheng.fastman.register;
 
-
 import com.husheng.fastman.FastManMod;
-import com.husheng.fastman.recipe.FastHopperRecipe;
+import com.husheng.fastman.recipe.FastItemSwitchRecipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.registry.Registries;
@@ -16,10 +15,10 @@ public class ModRecipes {
     }
     
     // NOTE 注册合成表
-    public static final RecipeSerializer<FastHopperRecipe> FAST_HOPPER_RECIPE = Registry.register(
+    public static final RecipeSerializer<FastItemSwitchRecipe> FAST_ITEM_SWITCH_RECIPE = Registry.register(
             Registries.RECIPE_SERIALIZER,
-            new Identifier(FastManMod.MOD_ID, "fast_hopper"),
-            new SpecialRecipeSerializer<>(FastHopperRecipe::new)
+            new Identifier(FastManMod.MOD_ID, "fast_item_switch"),
+            new SpecialRecipeSerializer<>(FastItemSwitchRecipe::new)
     );
     
     

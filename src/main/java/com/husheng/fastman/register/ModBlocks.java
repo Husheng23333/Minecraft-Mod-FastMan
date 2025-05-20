@@ -11,13 +11,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-/**
- * Description: 方块注册类
- *
- * @author HuSheng
- * @date 2024/7/20 下午7:36
- * @fileName ModBlocks.java
- **/
 public class ModBlocks {
     
     private static Block registerBlock(String name, Block block) {
