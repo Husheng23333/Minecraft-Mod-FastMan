@@ -6,7 +6,7 @@ import com.husheng.fastman.register.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 
-public enum SwitchEnum {
+public enum SwitchBlockEnum {
     
     // Fast Hopper
     Hopper_to_FastHopper(Blocks.HOPPER, ModBlocks.FAST_HOPPER_BLOCK, new BlockToContainerHandler(Blocks.HOPPER, ModBlocks.FAST_HOPPER_BLOCK)),
@@ -17,7 +17,7 @@ public enum SwitchEnum {
     private Block toBlock;
     private BaseSwitchHandler baseSwitchHandler;
     
-    SwitchEnum(Block fromBlock, Block toBlock, BaseSwitchHandler baseSwitchHandler) {
+    SwitchBlockEnum(Block fromBlock, Block toBlock, BaseSwitchHandler baseSwitchHandler) {
         this.fromBlock = fromBlock;
         this.toBlock = toBlock;
         this.baseSwitchHandler = baseSwitchHandler;
@@ -39,15 +39,15 @@ public enum SwitchEnum {
      * 获取当前方块对应的转换枚举
      *
      * @param nowBlock 当前方块
-     * @return SwitchEnum
+     * @return SwitchBlockEnum
      */
-    public static SwitchEnum getSwitchEnum(Block nowBlock) {
+    public static SwitchBlockEnum getSwitchEnum(Block nowBlock) {
         if (nowBlock == null) {
             return null;
         }
-        for (SwitchEnum switchEnum : values()) {
-            if (switchEnum.getFromBlock() == nowBlock) {
-                return switchEnum;
+        for (SwitchBlockEnum switchBlockEnum : values()) {
+            if (switchBlockEnum.getFromBlock() == nowBlock) {
+                return switchBlockEnum;
             }
         }
         return null;
