@@ -70,9 +70,14 @@ public class FastBlockSwitcherItem extends Item {
         return null;
     }
     
-    // 使物品可以被附魔
+    /**
+     * 物品是否可以被附魔
+     *
+     * @param stack 物品
+     * @return boolean
+     */
     @Override
     public boolean isEnchantable(ItemStack stack) {
-        return true;
+        return false;
     }
 }
