@@ -1,8 +1,7 @@
 package com.husheng.fastman.common;
 
 import com.husheng.fastman.handle.switchHandle.BaseSwitchHandler;
-import com.husheng.fastman.handle.switchHandle.fastHopper.FastHopperToHopperHandler;
-import com.husheng.fastman.handle.switchHandle.fastHopper.HopperToFastHopperHandler;
+import com.husheng.fastman.handle.switchHandle.common.BlockToContainerHandler;
 import com.husheng.fastman.register.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -10,8 +9,8 @@ import net.minecraft.block.Blocks;
 public enum SwitchEnum {
     
     // Fast Hopper
-    Hopper_to_FastHopper(Blocks.HOPPER, ModBlocks.FAST_HOPPER_BLOCK, new HopperToFastHopperHandler(Blocks.HOPPER, ModBlocks.FAST_HOPPER_BLOCK)),
-    FastHopper_to_Hopper(ModBlocks.FAST_HOPPER_BLOCK, Blocks.HOPPER, new FastHopperToHopperHandler(ModBlocks.FAST_HOPPER_BLOCK, Blocks.HOPPER)),
+    Hopper_to_FastHopper(Blocks.HOPPER, ModBlocks.FAST_HOPPER_BLOCK, new BlockToContainerHandler(Blocks.HOPPER, ModBlocks.FAST_HOPPER_BLOCK)),
+    FastHopper_to_Hopper(ModBlocks.FAST_HOPPER_BLOCK, Blocks.HOPPER, new BlockToContainerHandler(ModBlocks.FAST_HOPPER_BLOCK, Blocks.HOPPER)),
     
     ;
     private Block fromBlock;
