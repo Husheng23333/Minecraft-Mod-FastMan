@@ -7,13 +7,6 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-/**
- * Description: BlockToContainerHandler
- *
- * @author ZhangXinYu
- * @date 2025/5/20 14:16
- * @fileName BlockToContainerHandler.java
- **/
 public class BlockToUnContainerHandler extends BaseSwitchHandler {
     
     public BlockToUnContainerHandler(Block fromBlock, Block toBlock) {

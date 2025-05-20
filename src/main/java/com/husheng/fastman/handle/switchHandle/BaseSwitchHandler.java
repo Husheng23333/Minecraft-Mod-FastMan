@@ -7,13 +7,6 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
 
-/**
- * Description: BaseSwitchHandler
- *
- * @author ZhangXinYu
- * @date 2025/5/20 12:25
- * @fileName BaseSwitchHandler.java
- **/
 public abstract class BaseSwitchHandler {
     protected Block fromBlock;
     protected Block toBlock;

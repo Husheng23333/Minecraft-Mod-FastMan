@@ -11,13 +11,6 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-/**
- * Description: BlockToContainerHandler
- *
- * @author ZhangXinYu
- * @date 2025/5/20 14:16
- * @fileName BlockToContainerHandler.java
- **/
 public class BlockToContainerHandler extends BaseSwitchHandler {
     
     public BlockToContainerHandler(Block fromBlock, Block toBlock) {
