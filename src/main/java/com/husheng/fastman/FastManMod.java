@@ -1,9 +1,9 @@
 package com.husheng.fastman;
 
-import com.husheng.fastman.block.ModBlocks;
-import com.husheng.fastman.item.ModItemGroups;
-import com.husheng.fastman.item.ModItems;
-import com.husheng.fastman.recipe.ModRecipes;
+import com.husheng.fastman.register.ModBlocks;
+import com.husheng.fastman.register.ModItemGroups;
+import com.husheng.fastman.register.ModItems;
+import com.husheng.fastman.register.ModRecipes;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

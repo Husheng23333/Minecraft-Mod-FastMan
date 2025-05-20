@@ -1,7 +1,7 @@
-package com.husheng.fastman.recipe.custom;
+package com.husheng.fastman.recipe;
 
-import com.husheng.fastman.item.ModItems;
-import com.husheng.fastman.recipe.ModRecipes;
+import com.husheng.fastman.register.ModItems;
+import com.husheng.fastman.register.ModRecipes;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.inventory.RecipeInputInventory;

@@ -1,4 +1,4 @@
-package com.husheng.fastman.item;
+package com.husheng.fastman.register;
 
 import com.husheng.fastman.FastManMod;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -22,7 +22,7 @@ public class ModItemGroups {
         FastManMod.LOGGER.info("注册自定义物品组" + FastManMod.MOD_ID);
     }
     
-    // TODO: HuSheng 2024/7/20 | 这里添加新的物品组
+    // NOTE 注册物品组
     public static final ItemGroup RUBY_GROUP = Registry.register(
             Registries.ITEM_GROUP,
             new Identifier(FastManMod.MOD_ID, "mod"),

@@ -1,7 +1,7 @@
 package com.husheng.fastman.block.entity;
 
 
-import com.husheng.fastman.block.ModBlocks;
+import com.husheng.fastman.register.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.HopperBlockEntity;

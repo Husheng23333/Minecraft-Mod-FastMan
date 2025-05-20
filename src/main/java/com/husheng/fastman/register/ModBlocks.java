@@ -1,4 +1,4 @@
-package com.husheng.fastman.block;
+package com.husheng.fastman.register;
 
 import com.husheng.fastman.FastManMod;
 import com.husheng.fastman.block.custom.FastHopperBlock;
@@ -28,7 +28,7 @@ public class ModBlocks {
         FastManMod.LOGGER.info("注册方块：" + FastManMod.MOD_ID);
     }
     
-    // TODO: HuSheng 2024/7/20 | 这里添加新的方块
+    // NOTE: 注册方块与实体
     public static final Block FAST_HOPPER_BLOCK = registerBlock("fast_hopper", new FastHopperBlock(Block.Settings.copy(Blocks.HOPPER)));
     
     public static BlockEntityType<FastHopperBlockEntity> FAST_HOPPER_BLOCK_ENTITY = Registry.register(
