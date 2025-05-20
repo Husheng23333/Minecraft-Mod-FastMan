@@ -1,6 +1,6 @@
 package com.husheng.fastman.item;
 
-import com.husheng.fastman.common.SwitchEnum;
+import com.husheng.fastman.common.SwitchBlockEnum;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -32,13 +32,13 @@ public class FastBlockSwitcherItem extends Item {
         
         if (!world.isClient && player != null) {
             // 获取转换枚举
-            SwitchEnum switchEnum = SwitchEnum.getSwitchEnum(world.getBlockState(pos).getBlock());
-            if (switchEnum == null) {
+            SwitchBlockEnum switchBlockEnum = SwitchBlockEnum.getSwitchEnum(world.getBlockState(pos).getBlock());
+            if (switchBlockEnum == null) {
                 return ActionResult.PASS;
             }
             boolean isSuccess;
             try {
-                isSuccess = switchEnum.getBaseSwitchHandler().switchTo(context);
+                isSuccess = switchBlockEnum.getBaseSwitchHandler().switchTo(context);
             } catch (Exception e) {
                 isSuccess = false;
             }
