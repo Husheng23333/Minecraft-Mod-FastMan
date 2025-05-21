@@ -17,11 +17,9 @@ import net.minecraft.screen.HopperScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -170,50 +168,56 @@ public class FastHopperBlockEntity extends LootableContainerBlockEntity implemen
         return FastHopperBlockEntity.getAvailableSlots(inv, facing).allMatch(slot -> inv.getStack(slot).isEmpty());
     }
     
+    /**
+     * 从上方(world)提取物品 到漏斗(hopper)中
+     * @return boolean
+     */
     public static boolean extract(World world, Hopper hopper) {
+        // 从上方容器提取
         Inventory inventory = FastHopperBlockEntity.getInputInventory(world, hopper);
         if (inventory != null) {
             Direction direction = Direction.DOWN;
             if (FastHopperBlockEntity.isInventoryEmpty(inventory, direction)) {
                 return false;
             }
-            return FastHopperBlockEntity.getAvailableSlots(inventory, direction).anyMatch(slot -> FastHopperBlockEntity.extract(hopper, inventory, slot, direction));
+            
+            return FastHopperBlockEntity.getAvailableSlots(inventory, direction)
+                                        .anyMatch(slot -> FastHopperBlockEntity.extract(hopper, inventory, slot, direction));
         }
-        for (ItemEntity itemEntity : FastHopperBlockEntity.getInputItemEntities(world, hopper)) {
-            if (!FastHopperBlockEntity.extract(hopper, itemEntity)) {
-                continue;
+        
+        // 如果没有上方容器
+        return false;
+    }
+    
+    /**
+     * 提取物品到漏斗中
+     *
+     * @return boolean
+     */
+    private static boolean extract(Hopper hopper, Inventory inventory, int slot, Direction side) {
+        ItemStack sourceStack = inventory.getStack(slot);
+        if (sourceStack.isEmpty() || !FastHopperBlockEntity.canExtract(hopper, inventory, sourceStack, slot, side)) {
+            return false;
+        }
+        
+        ItemStack stackToTransfer = sourceStack.copy();
+        
+        // 尝试传输物品
+        ItemStack remaining = FastHopperBlockEntity.transfer(inventory, hopper, stackToTransfer, null);
+        if (remaining.getCount() < stackToTransfer.getCount()) {
+            int transferredCount = stackToTransfer.getCount() - remaining.getCount();
+            if (transferredCount == sourceStack.getCount()) {
+                inventory.removeStack(slot);
+            } else {
+                ItemStack newStack = inventory.getStack(slot).copy();
+                newStack.decrement(transferredCount);
+                inventory.setStack(slot, newStack);
             }
+            inventory.markDirty();
             return true;
         }
+        
         return false;
-    }
-    
-    private static boolean extract(Hopper hopper, Inventory inventory, int slot, Direction side) {
-        ItemStack itemStack = inventory.getStack(slot);
-        if (!itemStack.isEmpty() && FastHopperBlockEntity.canExtract(hopper, inventory, itemStack, slot, side)) {
-            ItemStack itemStack2 = itemStack.copy();
-            ItemStack itemStack3 = FastHopperBlockEntity.transfer(inventory, hopper, inventory.removeStack(slot, 1), null);
-            if (itemStack3.isEmpty()) {
-                inventory.markDirty();
-                return true;
-            }
-            inventory.setStack(slot, itemStack2);
-        }
-        return false;
-    }
-    
-    public static boolean extract(Inventory inventory, ItemEntity itemEntity) {
-        boolean bl = false;
-        ItemStack itemStack = itemEntity.getStack().copy();
-        ItemStack itemStack2 = FastHopperBlockEntity.transfer(null, inventory, itemStack, null);
-        if (itemStack2.isEmpty()) {
-            bl = true;
-            itemEntity.setStack(ItemStack.EMPTY);
-            itemEntity.discard();
-        } else {
-            itemEntity.setStack(itemStack2);
-        }
-        return bl;
     }
     
     /**
@@ -402,15 +406,14 @@ public class FastHopperBlockEntity extends LootableContainerBlockEntity implemen
     }
     
     /**
-     * 每 1 tick 执行一次，检测实体碰撞
+     * 每 1 tick 执行一次，检测实体碰撞 （暂时不做逻辑）
      */
-    public static void onEntityCollided(World world, BlockPos pos, BlockState state, Entity entity, FastHopperBlockEntity blockEntity) {
-        // 暂时不做逻辑
+//    public static void onEntityCollided(World world, BlockPos pos, BlockState state, Entity entity, FastHopperBlockEntity blockEntity) {
 //        ItemEntity itemEntity;
 //        if (entity instanceof ItemEntity && !(itemEntity = (ItemEntity)entity).getStack().isEmpty() && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), blockEntity.getInputAreaShape(), BooleanBiFunction.AND)) {
 //            FastHopperBlockEntity.insertAndExtract(world, pos, state, blockEntity, () -> FastHopperBlockEntity.extract(blockEntity, itemEntity));
 //        }
-    }
+//    }
     
     @Override
     public void readNbt(NbtCompound nbt) {
