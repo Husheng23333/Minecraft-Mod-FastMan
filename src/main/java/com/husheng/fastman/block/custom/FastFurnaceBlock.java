@@ -1,0 +1,29 @@
+package com.husheng.fastman.block.custom;
+
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FurnaceBlock;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+/**
+ * Description: FastFurnaceBlock
+ *
+ * @author ZhangXinYu
+ * @date 2025/5/21 15:20
+ * @fileName FastFurnaceBlock.java
+ **/
+public class FastFurnaceBlock extends FurnaceBlock {
+    
+    public FastFurnaceBlock(Settings settings) {
+        super(settings);
+    }
+    
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return super.getTicker(world, state, type);
+//        return world.isClient ? null : validateTicker(type, ModBlocks.FAST_FURNACE_BLOCK_ENTITY, FastFurnaceBlockEntity::serverTick);
+    }
+}
