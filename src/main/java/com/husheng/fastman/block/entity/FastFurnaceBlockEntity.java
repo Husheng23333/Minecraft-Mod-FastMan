@@ -50,5 +50,6 @@ public class FastFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
     }
     
     // NOTE: 熔炉功能实现
-
+    
+    
 }
