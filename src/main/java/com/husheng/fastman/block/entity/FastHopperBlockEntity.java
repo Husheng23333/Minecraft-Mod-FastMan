@@ -49,6 +49,16 @@ public class FastHopperBlockEntity extends LootableContainerBlockEntity implemen
         return Text.translatable("container.fast_hopper");
     }
     
+    /**
+     * 漏斗GUI
+     *
+     * @return ScreenHandler
+     */
+    @Override
+    protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
+        return new HopperScreenHandler(syncId, playerInventory, this);
+    }
+    
     // NOTE: 漏斗功能实现
     
     // 漏斗冷却时间
@@ -477,10 +487,5 @@ public class FastHopperBlockEntity extends LootableContainerBlockEntity implemen
     @Override
     protected void setInvStackList(DefaultedList<ItemStack> list) {
         this.inventory = list;
-    }
-    
-    @Override
-    protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return new HopperScreenHandler(syncId, playerInventory, this);
     }
 }
