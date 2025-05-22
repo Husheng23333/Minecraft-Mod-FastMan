@@ -61,6 +61,3 @@
 //        return FastHopperBlockEntityMixin.getCooldown(initialValue, (HopperBlockEntity) (Object) this);
 //    }
 //}
-//
-//
-//
