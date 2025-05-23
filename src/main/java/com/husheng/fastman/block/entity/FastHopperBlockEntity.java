@@ -141,15 +141,13 @@ public class FastHopperBlockEntity extends LootableContainerBlockEntity implemen
                 continue;
             }
             
-            // 需传输物品
-            ItemStack stackToTransfer = stack.copy();
             // 传输并返回未传输的物品
-            ItemStack remaining = FastHopperBlockEntity.transfer(inventory, outputInventory, stackToTransfer, direction);
+            ItemStack remaining = FastHopperBlockEntity.transfer(inventory, outputInventory, stack.copy(), direction);
             
             // 传输成功则移除当前漏斗中已传输的物品
-            if (remaining.getCount() < stackToTransfer.getCount()) {
+            if (remaining.getCount() < stack.getCount()) {
                 
-                int transferredCount = stackToTransfer.getCount() - remaining.getCount();
+                int transferredCount = stack.getCount() - remaining.getCount();
                 inventory.removeStack(i, transferredCount); // 移除传输的数量
                 
                 outputInventory.markDirty(); // NOTE: 标记输出容器为脏数据！以触发更新保存
@@ -210,13 +208,14 @@ public class FastHopperBlockEntity extends LootableContainerBlockEntity implemen
             return false;
         }
         
-        ItemStack stackToTransfer = sourceStack.copy();
-        
         // 尝试传输物品
-        ItemStack remaining = FastHopperBlockEntity.transfer(inventory, hopper, stackToTransfer, null);
-        if (remaining.getCount() < stackToTransfer.getCount()) {
-            int transferredCount = stackToTransfer.getCount() - remaining.getCount();
-            if (transferredCount == sourceStack.getCount()) {
+        ItemStack remaining = FastHopperBlockEntity.transfer(inventory, hopper, sourceStack.copy(), null);
+        
+        // 有物品被传输
+        int originStackCount = sourceStack.getCount();
+        if (remaining.getCount() < originStackCount) {
+            int transferredCount = originStackCount - remaining.getCount();
+            if (transferredCount == originStackCount) {
                 inventory.removeStack(slot);
             } else {
                 ItemStack newStack = inventory.getStack(slot).copy();

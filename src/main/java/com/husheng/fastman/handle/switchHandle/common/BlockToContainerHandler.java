@@ -57,7 +57,7 @@ public class BlockToContainerHandler extends BaseSwitchHandler {
         
         // 移除原方块实体（避免物品弹出）
         world.removeBlockEntity(pos);
-        world.removeBlock(pos, false);
+//        world.removeBlock(pos, false);
         
         // 设置新方块状态
         BlockState newBlockState = copyBlockState(nowBlockState, toBlock);
