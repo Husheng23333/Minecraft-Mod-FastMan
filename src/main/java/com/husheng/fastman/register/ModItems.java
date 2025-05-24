@@ -27,4 +27,6 @@ public class ModItems {
     public static final Item FAST_SWITCHER = registerItem("fast_switcher", new FastBlockSwitcherItem());
     
     public static final Item FAST_HOPPER = registerBlockItem("fast_hopper", new BlockItem(ModBlocks.FAST_HOPPER_BLOCK, new FabricItemSettings()));
+    
+    public static final Item FAST_FURNACE = registerBlockItem("fast_furnace", new BlockItem(ModBlocks.FAST_FURNACE_BLOCK, new FabricItemSettings()));
 }

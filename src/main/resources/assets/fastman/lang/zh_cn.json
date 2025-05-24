@@ -5,7 +5,12 @@
 
   "info.switch.success": "目标替换成功！",
   "info.switch.fail": "目标替换失败！",
+
   "container.fast_hopper": "快男漏斗",
   "item.fastman.fast_hopper": "快男漏斗",
-  "block.fastman.fast_hopper": "快男漏斗"
+  "block.fastman.fast_hopper": "快男漏斗",
+
+  "container.fast_furnace": "快男熔炉",
+  "item.fastman.fast_furnace": "快男熔炉",
+  "block.fastman.fast_furnace": "快男熔炉"
 }

@@ -24,5 +24,6 @@ public class ModItemGroups {
                            .entries((displayContext, entries) -> {
                                entries.add(ModItems.FAST_SWITCHER);
                                entries.add(ModItems.FAST_HOPPER);
+                               entries.add(ModItems.FAST_FURNACE);
                            }).build());
 }

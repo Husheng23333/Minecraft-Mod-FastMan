@@ -2,10 +2,9 @@ package com.husheng.fastman.block.entity;
 
 import com.husheng.fastman.register.ModBlocks;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.FurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.recipe.RecipeType;
 import net.minecraft.screen.FurnaceScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
@@ -18,10 +17,10 @@ import net.minecraft.util.math.BlockPos;
  * @date 2025/5/21 15:21
  * @fileName FastFurnaceBlockEntity.java
  **/
-public class FastFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
+public class FastFurnaceBlockEntity extends FurnaceBlockEntity {
     
     public FastFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityType.FURNACE, pos, state, RecipeType.SMELTING);
+        super(pos, state);
     }
     
     @Override
@@ -52,4 +51,8 @@ public class FastFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
     // NOTE: 熔炉功能实现
     
     
+//    @Override
+//    protected int getFuelTime(ItemStack fuel) {
+//        return super.getFuelTime(fuel) / 10;
+//    }
 }
