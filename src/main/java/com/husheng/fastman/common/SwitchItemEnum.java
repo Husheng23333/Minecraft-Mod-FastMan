@@ -10,6 +10,10 @@ public enum SwitchItemEnum {
     Hopper_to_FastHopper(Items.HOPPER, ModItems.FAST_HOPPER),
     FastHopper_to_Hopper(ModItems.FAST_HOPPER, Items.HOPPER),
     
+    // Fast Furnace
+    Furnace_to_FastFurnace(Items.FURNACE, ModItems.FAST_FURNACE),
+    FastFurnace_to_Furnace(ModItems.FAST_FURNACE, Items.FURNACE),
+    
     ;
     private Item fromItem;
     private Item toItem;

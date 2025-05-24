@@ -12,6 +12,10 @@ public enum SwitchBlockEnum {
     Hopper_to_FastHopper(Blocks.HOPPER, ModBlocks.FAST_HOPPER_BLOCK, new BlockToContainerHandler(Blocks.HOPPER, ModBlocks.FAST_HOPPER_BLOCK)),
     FastHopper_to_Hopper(ModBlocks.FAST_HOPPER_BLOCK, Blocks.HOPPER, new BlockToContainerHandler(ModBlocks.FAST_HOPPER_BLOCK, Blocks.HOPPER)),
     
+    // Fast Furnace
+    Furnace_to_FastFurnace(Blocks.FURNACE, ModBlocks.FAST_FURNACE_BLOCK, new BlockToContainerHandler(Blocks.FURNACE, ModBlocks.FAST_FURNACE_BLOCK)),
+    FastFurnace_to_Furnace(ModBlocks.FAST_FURNACE_BLOCK, Blocks.FURNACE, new BlockToContainerHandler(ModBlocks.FAST_FURNACE_BLOCK, Blocks.FURNACE)),
+    
     ;
     private Block fromBlock;
     private Block toBlock;
