@@ -28,10 +28,10 @@ import java.util.function.BooleanSupplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class FastHopperBlockEntity extends LootableContainerBlockEntity implements Hopper {
+public class FastHopperBlockEntity extends HopperBlockEntity {
     
     public FastHopperBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityType.HOPPER, pos, state);
+        super(pos, state);
     }
     
     @Override
