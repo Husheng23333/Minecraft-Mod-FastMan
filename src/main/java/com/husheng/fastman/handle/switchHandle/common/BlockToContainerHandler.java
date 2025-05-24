@@ -4,7 +4,7 @@ import com.husheng.fastman.handle.switchHandle.BaseSwitchHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.LootableContainerBlockEntity;
+import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.collection.DefaultedList;
@@ -40,14 +40,14 @@ public class BlockToContainerHandler extends BaseSwitchHandler {
         BlockEntity nowBaseBlockEntity = world.getBlockEntity(pos);
         
         // 非容器方块直接替换
-        if (!(world.getBlockEntity(pos) instanceof LootableContainerBlockEntity)) {
+        if (!(world.getBlockEntity(pos) instanceof LockableContainerBlockEntity)) {
             BlockState newBlockState = copyBlockState(nowBlockState, toBlock);
             world.setBlockState(pos, newBlockState);
             return true;
         }
         
         // 当前方块是容器方块
-        LootableContainerBlockEntity nowBlockEntity = (LootableContainerBlockEntity) world.getBlockEntity(pos);
+        LockableContainerBlockEntity nowBlockEntity = (LockableContainerBlockEntity) world.getBlockEntity(pos);
         
         // 保存原容器物品
         DefaultedList<ItemStack> inventory = DefaultedList.ofSize(nowBlockEntity.size(), ItemStack.EMPTY);
@@ -65,8 +65,8 @@ public class BlockToContainerHandler extends BaseSwitchHandler {
         world.setBlockState(pos, newBlockState);
         
         // 将物品转移到新容器中
-        if ((world.getBlockEntity(pos) instanceof LootableContainerBlockEntity)) {
-            LootableContainerBlockEntity newBlockEntity = (LootableContainerBlockEntity) world.getBlockEntity(pos);
+        if ((world.getBlockEntity(pos) instanceof LockableContainerBlockEntity)) {
+            LockableContainerBlockEntity newBlockEntity = (LockableContainerBlockEntity) world.getBlockEntity(pos);
             int transferSize = Math.min(inventory.size(), newBlockEntity.size());
             for (int i = 0; i < transferSize; i++) {
                 newBlockEntity.setStack(i, inventory.get(i));
