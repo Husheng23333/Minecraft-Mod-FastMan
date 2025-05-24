@@ -11,13 +11,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Description: FastFurnaceBlock
- *
- * @author ZhangXinYu
- * @date 2025/5/21 15:20
- * @fileName FastFurnaceBlock.java
- **/
 public class FastFurnaceBlock extends FurnaceBlock {
     
     public FastFurnaceBlock(Settings settings) {

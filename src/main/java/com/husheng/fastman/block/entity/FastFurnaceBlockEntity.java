@@ -10,13 +10,6 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
-/**
- * Description: FastFurnaceBlockEntity
- *
- * @author ZhangXinYu
- * @date 2025/5/21 15:21
- * @fileName FastFurnaceBlockEntity.java
- **/
 public class FastFurnaceBlockEntity extends FurnaceBlockEntity {
     
     public FastFurnaceBlockEntity(BlockPos pos, BlockState state) {
