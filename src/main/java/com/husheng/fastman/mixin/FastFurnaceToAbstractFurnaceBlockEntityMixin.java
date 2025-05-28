@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractFurnaceBlockEntity.class)
-public abstract class FastFurnaceBlockEntityMixin {
+public abstract class FastFurnaceToAbstractFurnaceBlockEntityMixin {
     
     private final static int fast_times = 20;
     
