@@ -1,6 +1,6 @@
-package com.husheng.fastman.block.custom;
+package com.husheng.fastman.block.furnace.custom;
 
-import com.husheng.fastman.block.entity.FastFurnaceBlockEntity;
+import com.husheng.fastman.block.furnace.entity.FastFurnaceBlockEntity;
 import com.husheng.fastman.register.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FurnaceBlock;

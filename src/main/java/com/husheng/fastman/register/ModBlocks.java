@@ -1,10 +1,10 @@
 package com.husheng.fastman.register;
 
 import com.husheng.fastman.FastManMod;
-import com.husheng.fastman.block.custom.FastFurnaceBlock;
-import com.husheng.fastman.block.custom.FastHopperBlock;
-import com.husheng.fastman.block.entity.FastFurnaceBlockEntity;
-import com.husheng.fastman.block.entity.FastHopperBlockEntity;
+import com.husheng.fastman.block.furnace.custom.FastFurnaceBlock;
+import com.husheng.fastman.block.furnace.entity.FastFurnaceBlockEntity;
+import com.husheng.fastman.block.hopper.custom.FastHopperBlock;
+import com.husheng.fastman.block.hopper.entity.FastHopperBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;

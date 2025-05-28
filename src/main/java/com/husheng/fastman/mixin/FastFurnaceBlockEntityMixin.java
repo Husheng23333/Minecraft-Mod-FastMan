@@ -1,6 +1,6 @@
 package com.husheng.fastman.mixin;
 
-import com.husheng.fastman.block.entity.FastFurnaceBlockEntity;
+import com.husheng.fastman.block.furnace.entity.FastFurnaceBlockEntity;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

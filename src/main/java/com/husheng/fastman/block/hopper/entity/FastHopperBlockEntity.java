@@ -1,4 +1,4 @@
-package com.husheng.fastman.block.entity;
+package com.husheng.fastman.block.hopper.entity;
 
 import com.husheng.fastman.register.ModBlocks;
 import net.minecraft.block.*;

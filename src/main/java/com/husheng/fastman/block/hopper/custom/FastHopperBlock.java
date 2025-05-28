@@ -1,6 +1,6 @@
-package com.husheng.fastman.block.custom;
+package com.husheng.fastman.block.hopper.custom;
 
-import com.husheng.fastman.block.entity.FastHopperBlockEntity;
+import com.husheng.fastman.block.hopper.entity.FastHopperBlockEntity;
 import com.husheng.fastman.register.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HopperBlock;
