@@ -1,6 +1,5 @@
 package com.husheng.fastman.block.entity;
 
-
 import com.husheng.fastman.register.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
@@ -17,9 +16,11 @@ import net.minecraft.screen.HopperScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -79,6 +80,19 @@ public class FastHopperBlockEntity extends HopperBlockEntity {
         if (!blockEntity.needsCooldown()) { // 无需冷却 执行传输逻辑
             blockEntity.setTransferCooldown(0);
             FastHopperBlockEntity.insertAndExtract(world, pos, state, blockEntity, () -> FastHopperBlockEntity.extract(world, blockEntity));
+        }
+    }
+    
+    /**
+     * 每 1 tick 执行一次，检测实体碰撞(吸漏斗上面的物品)
+     */
+    public static void onEntityCollided(World world, BlockPos pos, BlockState state, Entity entity, FastHopperBlockEntity blockEntity) {
+        ItemEntity itemEntity;
+        if (entity instanceof ItemEntity &&
+                !(itemEntity = (ItemEntity)entity).getStack().isEmpty() &&
+                VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), blockEntity.getInputAreaShape(), BooleanBiFunction.AND)
+        ) {
+            FastHopperBlockEntity.insertAndExtract(world, pos, state, blockEntity, () -> FastHopperBlockEntity.extract(blockEntity, itemEntity));
         }
     }
     
@@ -150,7 +164,7 @@ public class FastHopperBlockEntity extends HopperBlockEntity {
                 int transferredCount = stack.getCount() - remaining.getCount();
                 inventory.removeStack(i, transferredCount); // 移除传输的数量
                 
-                outputInventory.markDirty(); // NOTE: 标记输出容器为脏数据！以触发更新保存
+                outputInventory.markDirty(); // NOTE: 触发更新保存
                 return true;
             }
         }
@@ -413,16 +427,6 @@ public class FastHopperBlockEntity extends HopperBlockEntity {
     private boolean isDisabled() {
         return this.transferCooldown > MAX_TRANSFER_COOLDOWN;
     }
-    
-    /**
-     * 每 1 tick 执行一次，检测实体碰撞 （暂时不做逻辑）
-     */
-//    public static void onEntityCollided(World world, BlockPos pos, BlockState state, Entity entity, FastHopperBlockEntity blockEntity) {
-//        ItemEntity itemEntity;
-//        if (entity instanceof ItemEntity && !(itemEntity = (ItemEntity)entity).getStack().isEmpty() && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), blockEntity.getInputAreaShape(), BooleanBiFunction.AND)) {
-//            FastHopperBlockEntity.insertAndExtract(world, pos, state, blockEntity, () -> FastHopperBlockEntity.extract(blockEntity, itemEntity));
-//        }
-//    }
     
     @Override
     public void readNbt(NbtCompound nbt) {
